@@ -24,13 +24,15 @@ public interface BaseData {
 
     }
 
+
+
+
     private void convert(Field field, Object vo) {
         try {
             Field source = this.getClass().getDeclaredField(field.getName());
             field.setAccessible(true);
             source.setAccessible(true);
             field.set(vo, source.get(this));
-        } catch (IllegalAccessException | NoSuchFieldException ignored) {
-        }
+        } catch (IllegalAccessException | NoSuchFieldException ignored) {}
     }
 }

@@ -51,7 +51,7 @@ public class JwtUtils {
             return false;
         Date now = new Date();
         long expire = Math.max(time.getTime() - now.getTime(),0);
-        template.opsForValue().set(Constant.JWT_BLACK_LIST + uuid ,"",expire, TimeUnit.MICROSECONDS);
+        template.opsForValue().set(Constant.JWT_BLACK_LIST + uuid ,"",expire, TimeUnit.MILLISECONDS);
         return true;
     }
 
